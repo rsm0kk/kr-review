@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>국장 복기 2020–2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css?v=345e4c1b">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div>
+      <h1>국장 복기 대시보드 <span class="yr">2020–2026</span></h1>
+      <div class="sub" id="asofLine">데이터 불러오는 중…</div>
+    </div>
+    <div class="top-right">
+      <label class="pit" title="선택한 날짜까지 공개된 정보만 보여줍니다">
+        <input type="checkbox" id="pitOn"> 당시 정보 모드
+      </label>
+      <input type="date" id="pitDate" class="pit-date" disabled>
+      <label class="pit small"><input type="checkbox" id="pitAfter" disabled> 이후 결과 보기</label>
+      <button id="shareBtn" class="btn ghost" title="필터·비교 종목·구간이 담긴 주소를 복사">현재 화면 링크</button>
+      <button id="themeBtn" class="btn ghost" aria-label="테마 전환">다크</button>
+    </div>
+  </div>
+</header>
+<div id="pitBanner" class="pit-banner" hidden></div>
+<nav class="tabs" id="tabs">
+  <button data-tab="home" class="on">시장 복기</button>
+  <button data-tab="chart">비교 차트·구간 분석</button>
+  <button data-tab="stock">종목 복기</button>
+  <button data-tab="group">섹터·테마 비교</button>
+  <button data-tab="persist">지속성·반전</button>
+  <button data-tab="pattern">복기 패턴</button>
+  <button data-tab="newlist">신규 상장·코로나 구간</button>
+  <button data-tab="notes">복기 메모</button>
+  <button data-tab="data">데이터·검증</button>
+</nav>
+<section class="filters" id="filters">
+  <div class="f">
+    <label>연도</label><select id="fYear"></select>
+  </div>
+  <div class="f seg" id="fKind">
+    <button data-k="H1">상반기</button><button data-k="H2">하반기</button><button data-k="FY" class="on">연간</button>
+  </div>
+  <div class="f seg" id="fMkt">
+    <button data-m="ALL" class="on">전체</button><button data-m="KOSPI">코스피</button><button data-m="KOSDAQ">코스닥</button>
+  </div>
+  <div class="f seg" id="fFilt">
+    <button data-f="all" class="on" title="코스피·코스닥 보통주 전체">전 종목</button><button data-f="inv" title="시작 시총 1,000억·거래대금 10억 이상">투자 가능</button>
+  </div>
+  <div class="f"><label>대섹터</label><select id="fSector"><option value="">전체</option></select></div>
+  <div class="f"><label>테마</label><select id="fTheme"><option value="">전체</option></select></div>
+  <div class="f grow"><label>종목 검색</label>
+    <div class="search"><input id="q" type="search" placeholder="종목명·코드 (비교 차트에 추가)" autocomplete="off"><div id="qList" class="qlist" hidden></div></div>
+  </div>
+</section>
+<main id="main">
+  <section class="tab on" id="tab-home"></section>
+  <section class="tab" id="tab-chart"></section>
+  <section class="tab" id="tab-stock"></section>
+  <section class="tab" id="tab-group"></section>
+  <section class="tab" id="tab-persist"></section>
+  <section class="tab" id="tab-pattern"></section>
+  <section class="tab" id="tab-newlist"></section>
+  <section class="tab" id="tab-notes"></section>
+  <section class="tab" id="tab-data"></section>
+</main>
+<div id="tip" class="tip" hidden></div>
+<div id="modal" class="modal" hidden><div class="modal-in"><button class="x" id="modalX" aria-label="닫기">×</button><div id="modalBody"></div></div></div>
+<footer class="foot">시세: 금융위원회 주식시세정보(공공데이터포털, KRX 원천) · 공시·재무: DART OpenAPI · 사건 출처는 각 항목 링크. 투자 권유가 아니며 사후 복기용 자료입니다.</footer>
+<script src="app.js?v=345e4c1b"></script>
+</body>
+</html>
